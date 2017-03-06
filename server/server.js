@@ -1,18 +1,30 @@
-var express = require('');
+var express = require('express');
 var mongoose= require('mongoose');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+
 
 var app = express();
 
 
-mongoose.connect(mongodb://localhost/stencil-dev);
+// mongoose.connect(mongodb://localhost/transtodo);
 
-//for static files location /public/img
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('X-HTTP-Method-Override'))
+// for static files location /public/img
 app.use(express.static(__dirname + '/public'));
 
-require('./config/middleware.js')(app, express);
-require('./config/routes.js')(app, express);
 
-// http://localhost:8000
-app.listen(8000);
+// API REQUESTS
+app.get("/", function(req, res){
+  console.log("HIIII")
+})
+app.listen(8000,function(){
+  console.log("its up")
+});
+
 
 module.exports = app;

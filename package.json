@@ -1,5 +1,5 @@
 {
-  "name": "mvp",
+  "name": "hrnyc6-mvp",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -12,6 +12,8 @@
     "angular": "^1.6.2",
     "body-parser": "^1.4.3",
     "express": "^4.4.5",
+    "google-translate-api": "^2.2.2",
+    "method-override" : "~2.0.2",
     "mongoose": "^4.1.0",
     "morgan": "^1.1.1"
   }

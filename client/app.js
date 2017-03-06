@@ -2,7 +2,7 @@ var app = angular.module('app', [
 
 ])
 .controller('todoCtrl', function($scope) {
-  $scope.todos = [{text: 'Clean House', done: false}];
+  $scope.todos = [];
 
   $scope.addTodo = function() {
     $scope.todos.push({text: $scope.todoInput, done: false});
@@ -10,6 +10,7 @@ var app = angular.module('app', [
   };
 
   $scope.removeTodo = function(){
+
     var oldList = $scope.todos;
     $scope.todos = [];
     angular.forEach(oldList, function(todo) {
@@ -17,5 +18,3 @@ var app = angular.module('app', [
     });
   };
 });
-
-module.exports = app;
