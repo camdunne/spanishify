@@ -3,6 +3,7 @@ var mongoose= require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var path = require('path')
 
 
 var app = express();
@@ -15,14 +16,16 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'))
 // for static files location /public/img
-app.use(express.static(__dirname + '/public'));
+
+
+app.use(express.static(__dirname + '../client'));
 
 
 // API REQUESTS
-app.get("/", function(req, res){
-  console.log("HIIII")
+app.get("*", function(req, res){
+  res.sendFile(path.join(__dirname,'../client/index.html'))
 })
-app.listen(8000,function(){
+app.listen(8090,function(){
   console.log("its up")
 });
 
