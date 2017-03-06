@@ -5,8 +5,10 @@ var app = angular.module('app.todo', [
   $scope.todos = [];
 
   $scope.addTodo = function() {
-    $scope.todos.push({text: $scope.todoInput, done: false});
-    $scope.todoInput = "";
+    if($scope.todoInput !== ""){
+        $scope.todos.push({text: $scope.todoInput, done: false});
+        $scope.todoInput = "";
+    }
   };
 
   $scope.removeTodo = function(){

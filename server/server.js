@@ -18,11 +18,12 @@ app.use(methodOverride('X-HTTP-Method-Override'))
 // for static files location /public/img
 
 
-app.use(express.static(__dirname + '../client'));
+app.use(express.static(path.join(__dirname, '../client')));
 
 
 // API REQUESTS
-app.get("*", function(req, res){
+app.get("/", function(req, res){
+  console.log('HERE')
   res.sendFile(path.join(__dirname,'../client/index.html'))
 })
 app.listen(8090,function(){

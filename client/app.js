@@ -4,11 +4,8 @@ angular.module('app', [
 ])
 .config(function($routeProvider) {
   $routeProvider
-    .when('/', {
-      templateUrl: 'index.html',
+    .when('/index', {
+      templateUrl: './index.html',
       controller: 'todoCtrl'
-    })
-    .otherwise({
-      redirectTo: '/links'
     })
 })
