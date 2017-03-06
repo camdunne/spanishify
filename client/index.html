@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Translate ToDos</title>
+</head>
+<body ng-app="app" ng-controller="todoCtrl">
+  <h1>Translate ToDos<h1>
+  <form ng-submit="add()">
+    <input type="text" ng-model="todoInput" placeholder="add to list...">
+    <button>submit</button>
+  </form>
+  <hr>
+  <div ng-repeat="item in todoList">
+    <input type="checkbox" ng-model="item.done">
+    <div ng-bind="item.todoText"></div>
+  </div>
+  <p><button ng-click="remove()">Remove marked</button></p>
+  <script src="app/app.js"></script>
+</body>
+</html>
