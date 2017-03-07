@@ -56,7 +56,7 @@ app.post('/todo', function(req, res) {
 var port = process.env.PORT;
 
 app.listen(port, function(){
-  console.log("Listening on port", PORT)
+  console.log("Listening on port", port)
 });
 
 
