@@ -9,13 +9,14 @@ var request = require('request')
 
 var app = express();
 
-// mongoose.connect(mongodb://localhost/transtodo);
+var mlabUser = require('./mlab.js')
+
+mongoose.connect("mongodb://mlabUser@ds055515.mlab.com:55515/transtod");
 
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'))
-// for static files location /public/img
 
 
 app.use(express.static(path.join(__dirname, '../client')));
