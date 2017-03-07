@@ -53,6 +53,7 @@ var app = angular.module('app.todo', [
       data : array
     }).then(function(data){
       $scope.loadTodo();
+      $scope.deleteTodos = [];
     })
 
   };
