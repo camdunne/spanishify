@@ -14,7 +14,7 @@ var app = express();
 var mlabUser = process.env.MLAB_USER;
 var todoModel = require('./todoModel.js')
 
-
+console.log(mlabUser)
 mongoose.connect("mongodb://"+mlabUser+"@ds055515.mlab.com:55515/transtodo");
 
 app.use(bodyParser.json());
