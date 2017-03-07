@@ -2,7 +2,9 @@ body {
   background: pink;
   margin:auto 0;
   font-size: 32px;
+  text-align: center;
 }
 h1 {
+  font-size: 30px;
   text-align: center;
 }
