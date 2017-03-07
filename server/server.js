@@ -22,32 +22,25 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 
 // API REQUESTS
-app.get("/", function(req, res){
-  console.log('HERE')
-  res.sendFile(path.join(__dirname,'../client/index.html'))
-})
-
-app.post('/', function(req, res) {
-  console.log(req)
+app.post('/todo', function(req, res) {
+  console.log(req.body)
   var options = {
     method: 'post',
     contentype: 'application/json',
-    body: {
-      from: "en",
-      to: "es",
-      text: "hi"
-    },
+    body: req.body,
     json: true,
     url: 'http://www.transltr.org/api/translate'
   }
-  request(options, function (error, res, body) {
+  request(options, function (error, response, body) {
     if (error) {
       console.log("ERROR", error)
       throw error;
     }
-    console.log("statuscode",res.statusCode)
+    console.log("statuscode",response.statusCode)
     console.log("body", body)
+    res.send(body)
   })
+
 });
 
 
