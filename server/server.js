@@ -33,7 +33,6 @@ app.get('/todo', function(req, res) {
   })
 })
 
-
 app.post('/todo', function(req, res) {
     var options = {
     method: 'post',
@@ -47,16 +46,11 @@ app.post('/todo', function(req, res) {
       throw error;
     }
     var todo1 = new Todo({
-      text: req.body.translationText,
-      original: req.body.text,
+      translationText: body.translationText,
+      text: body.text,
       done: false
     })
     todo1.save();
-    // todo1.find(function(err, todos) {
-    //   if(err) throw err;
-    //   res.json(todos);
-    // })
-    console.log("req.body", req.body)
     console.log("statuscode",response.statusCode)
     console.log("body", body)
     res.send(body)

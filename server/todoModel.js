@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 var TodoSchema = new mongoose.Schema({
+  translationText: { type: String },
   text: { type: String },
-  original: { type: String },
   done: { type: Boolean }
 });
 

@@ -9,8 +9,7 @@ var app = angular.module('app.todo', [
       method: 'GET',
       url: '/todo'
     }).then(function(data){
-      console.log("LINE 12 data", data.data)
-      // $scope.todos = data;
+      $scope.todos = data.data;
     })
   };
 
@@ -27,7 +26,8 @@ var app = angular.module('app.todo', [
       })
         .then(function(data){
           console.log("DATA", data.data)
-          $scope.todos.push({text: data.data.translationText.toLowerCase(), original: $scope.todoInput, done: false});
+          $scope.todos.push(data.data)
+          // $scope.todos.push({text: data.data.translationText.toLowerCase(), original: $scope.todoInput, done: false});
           $scope.todoInput = "";
           console.log($scope.todos)
         },
