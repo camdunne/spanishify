@@ -33,8 +33,17 @@ app.get('/todo', function(req, res) {
   })
 })
 
+app.post('/delete', function(req, res) {
+  req.body.forEach( (elem) => {
+    Todo.remove({_id: elem._id}, function(err, elem) {
+        if(err) throw err;
+        res.send(elem)
+    })
+  })
+})
+
 app.post('/todo', function(req, res) {
-    var options = {
+  var options = {
     method: 'post',
     contentype: 'application/json',
     body: req.body,

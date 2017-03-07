@@ -16,13 +16,13 @@
 </header>
   <div>
     <div ng-repeat="todo in todos">
-      <input type="checkbox" ng-model="todo.done"/>
+      <input type="checkbox" ng-click="deleteTodos.push(todo)"/>
       {{ todo.translationText }}
       <span ng-bind="todo.todos"></span>
     </div>
   </div>
 
-  <p><button class="btn" ng-click="removeTodo()">Clear Completed</button></p>
+  <p><button class="btn" ng-click="removeTodo(deleteTodos)">Clear Completed</button></p>
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
