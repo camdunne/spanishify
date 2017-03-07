@@ -4,10 +4,10 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var path = require('path')
-
+var http = require('http')
+var request = require('request')
 
 var app = express();
-
 
 // mongoose.connect(mongodb://localhost/transtodo);
 
@@ -26,8 +26,33 @@ app.get("/", function(req, res){
   console.log('HERE')
   res.sendFile(path.join(__dirname,'../client/index.html'))
 })
+
+app.post('/', function(req, res) {
+  console.log(req)
+  var options = {
+    method: 'post',
+    contentype: 'application/json',
+    body: {
+      from: "en",
+      to: "es",
+      text: "hi"
+    },
+    json: true,
+    url: 'http://www.transltr.org/api/translate'
+  }
+  request(options, function (error, res, body) {
+    if (error) {
+      console.log("ERROR", error)
+      throw error;
+    }
+    console.log("statuscode",res.statusCode)
+    console.log("body", body)
+  })
+});
+
+
 app.listen(8090,function(){
-  console.log("its up")
+  console.log("Listening on port 8090")
 });
 
 
