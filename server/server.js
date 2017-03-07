@@ -12,12 +12,9 @@ var request = require('request')
 var app = express();
 
 var mlabUser = process.env.MLAB_USER;
-var todoModel = require('./todoModel.js')
+var Todo = require('./todoModel.js')
 
 
-
-
-console.log(mlabUser)
 mongoose.connect("mongodb://"+mlabUser+"@ds055515.mlab.com:55515/transtodo");
 
 app.use(bodyParser.json());
@@ -25,18 +22,20 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'))
 
-
 app.use(express.static(path.join(__dirname, '../client')));
-//mongoose model
-
-// fs.readirSync(__dirname+ '/todoModel').fprEach(function)
-
 
 // API REQUESTS
-app.post('/todo', function(req, res) {
-  console.log("req.body", req.body)
 
-  var options = {
+app.get('/todo', function(req, res) {
+  Todo.find(function(err, todos) {
+    if(err) res.send(err);
+    res.json(todos)
+  })
+})
+
+
+app.post('/todo', function(req, res) {
+    var options = {
     method: 'post',
     contentype: 'application/json',
     body: req.body,
@@ -47,6 +46,17 @@ app.post('/todo', function(req, res) {
     if (error) {
       throw error;
     }
+    var todo1 = new Todo({
+      text: req.body.translationText,
+      original: req.body.text,
+      done: false
+    })
+    todo1.save();
+    // todo1.find(function(err, todos) {
+    //   if(err) throw err;
+    //   res.json(todos);
+    // })
+    console.log("req.body", req.body)
     console.log("statuscode",response.statusCode)
     console.log("body", body)
     res.send(body)

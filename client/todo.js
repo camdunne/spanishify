@@ -4,6 +4,16 @@ var app = angular.module('app.todo', [
 .controller('todoCtrl', ["$scope", "$http",
  function($scope, $http) {
   $scope.todos = [];
+  $scope.loadTodo = function() {
+    $http({
+      method: 'GET',
+      url: '/todo'
+    }).then(function(data){
+      console.log("LINE 12 data", data.data)
+      // $scope.todos = data;
+    })
+  };
+
   $scope.addTodo = function() {
     if($scope.todoInput !== ""){
       $http({
