@@ -14,6 +14,9 @@ var app = express();
 var mlabUser = process.env.MLAB_USER;
 var todoModel = require('./todoModel.js')
 
+
+
+
 console.log(mlabUser)
 mongoose.connect("mongodb://"+mlabUser+"@ds055515.mlab.com:55515/transtodo");
 
@@ -50,9 +53,9 @@ app.post('/todo', function(req, res) {
   })
 
 });
+var port = process.env.PORT;
 
-
-app.listen(8000,function(){
+app.listen(port, function(){
   console.log("Listening on port 8000")
 });
 
