@@ -1,3 +1,5 @@
+
+
 var express = require('express');
 var mongoose= require('mongoose');
 var morgan = require('morgan');
@@ -6,11 +8,10 @@ var methodOverride = require('method-override');
 var path = require('path')
 var http = require('http')
 var request = require('request')
-// var fs = ('fs');
 
 var app = express();
 
-var mlabUser = require('./mlab.js')
+var mlabUser = process.env.MLAB_USER;
 var todoModel = require('./todoModel.js')
 
 
