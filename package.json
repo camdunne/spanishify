@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
   },
   "author": "Cameron Dunne",
   "license": "UNLICENSED",
@@ -12,13 +13,13 @@
     "angular": "^1.6.2",
     "body-parser": "^1.4.3",
     "express": "^4.4.5",
-    "google-translate-api": "^2.2.2",
     "http": "0.0.0",
+    "jwt-simple": "^0.5.1",
     "method-override": "~2.0.2",
-    "mongo": "^0.1.0",
     "mongoose": "^4.1.0",
     "morgan": "^1.1.1",
     "path": "^0.12.7",
+    "q": "^1.4.1",
     "request": "^2.80.0"
   },
   "devDependencies": {

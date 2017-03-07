@@ -6,12 +6,15 @@ var methodOverride = require('method-override');
 var path = require('path')
 var http = require('http')
 var request = require('request')
+// var fs = ('fs');
 
 var app = express();
 
 var mlabUser = require('./mlab.js')
+var todoModel = require('./todoModel.js')
 
-mongoose.connect("mongodb://mlabUser@ds055515.mlab.com:55515/transtod");
+
+mongoose.connect("mongodb://"+mlabUser+"@ds055515.mlab.com:55515/transtodo");
 
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
@@ -20,11 +23,15 @@ app.use(methodOverride('X-HTTP-Method-Override'))
 
 
 app.use(express.static(path.join(__dirname, '../client')));
+//mongoose model
+
+// fs.readirSync(__dirname+ '/todoModel').fprEach(function)
 
 
 // API REQUESTS
 app.post('/todo', function(req, res) {
-  console.log(req.body)
+  console.log("req.body", req.body)
+
   var options = {
     method: 'post',
     contentype: 'application/json',
@@ -34,7 +41,6 @@ app.post('/todo', function(req, res) {
   }
   request(options, function (error, response, body) {
     if (error) {
-      console.log("ERROR", error)
       throw error;
     }
     console.log("statuscode",response.statusCode)
@@ -45,8 +51,8 @@ app.post('/todo', function(req, res) {
 });
 
 
-app.listen(8090,function(){
-  console.log("Listening on port 8090")
+app.listen(8000,function(){
+  console.log("Listening on port 8000")
 });
 
 

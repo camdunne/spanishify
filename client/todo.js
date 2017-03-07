@@ -1,8 +1,8 @@
 var app = angular.module('app.todo', [
 
 ])
-.controller('todoCtrl', ["$scope", "$http", "$httpParamSerializer",
- function($scope, $http, $httpParamSerializer) {
+.controller('todoCtrl', ["$scope", "$http",
+ function($scope, $http) {
   $scope.todos = [];
   $scope.addTodo = function() {
     if($scope.todoInput !== ""){
