@@ -5,6 +5,11 @@ var app = angular.module('app.todo', [
  function($scope, $http) {
   $scope.todos = [];
   $scope.deleteTodos = [];
+  $scope.toggle = true;
+
+  $scope.$watch('toggle', function(){
+    $scope.toggleText = $scope.toggle ? 'Inglesify' : "Spanishify"
+  })
 
   $scope.loadTodo = function() {
     $http({

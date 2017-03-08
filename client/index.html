@@ -17,8 +17,8 @@
   <div>
     <div ng-repeat="todo in todos">
       <input type="checkbox" ng-click="deleteTodos.push(todo)"/>
-      <span ng-show="toggle">{{todo.translationText}}</span>
-      <span ng-hide="toggle">{{todo.text}}</span>
+      <span ng-show="toggle">{{ todo.translationText }}</span>
+      <span ng-hide="toggle">{{ todo.text }}</span>
 
       <!-- {{ todo.translationText }} -->
       <span ng-bind="todo.todos"></span>
@@ -26,8 +26,8 @@
   </div>
 
   <p>
-    <button class="btn" ng-click="removeTodo(deleteTodos)">Clear Completed</button>
-    <button class="btn" ng-click="toggle = !toggle">Spanishify</button>
+    <button class="btn" ng-click="removeTodo(deleteTodos)"> Clear Completed </button>
+    <button class="btn" ng-click="toggle = !toggle">{{ toggleText }}</button>
   </p>
 
 
