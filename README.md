@@ -29,7 +29,7 @@
   * Enter your to do list item in English
   * your list renders and the user can chose to display the information in either English or Spanish
 
-### Remove To Do Items
+#### Remove To Do Items
   * check off boxes to delete list items from your list
 
 
