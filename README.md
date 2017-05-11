@@ -41,7 +41,6 @@
 - dotenv 4.0.0
 - express 4.4.5
 - http 0.0.0
-- method-override 2.0.2
 - mongoose 4.9.0
 - morgan 1.8.1
 - path 0.12.7

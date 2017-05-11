@@ -7,5 +7,5 @@ angular.module('app', [
     .when('/index', {
       templateUrl: './index.html',
       controller: 'todoCtrl'
-    })
-})
+    });
+});
