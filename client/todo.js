@@ -42,14 +42,6 @@ var app = angular.module('app.todo', [
 
     }
   };
-
-  // $scope.removeTodo = function(){
-  //   var oldList = $scope.todos;
-  //   $scope.todos = [];
-  //   angular.forEach(oldList, function(todo) {
-  //     if(!todo.done) $scope.todos.push(todo);
-  //   });
-  // };
   $scope.removeTodo = function(array) {
     console.log(array)
     $http({
