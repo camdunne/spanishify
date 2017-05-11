@@ -1,6 +1,4 @@
-var app = angular.module('app.todo', [
-
-])
+var app = angular.module('app.todo', [])
 .controller('todoCtrl', ["$scope", "$http",
  function($scope, $http) {
   $scope.todos = [];
@@ -32,18 +30,13 @@ var app = angular.module('app.todo', [
         }
       })
         .then(function(data){
-          console.log("DATA", data.data)
-          $scope.todos.push(data.data)
-          // $scope.todos.push({text: data.data.translationText.toLowerCase(), original: $scope.todoInput, done: false});
+          $scope.todos.push(data.data);
           $scope.todoInput = "";
-          console.log($scope.todos)
         },
-          function(error) { console.log("error", error) })
-
+          function(error) { throw error; })
     }
   };
   $scope.removeTodo = function(array) {
-    console.log(array)
     $http({
       method: 'POST',
       url: '/delete',
