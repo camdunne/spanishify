@@ -11,6 +11,7 @@ module.exports = {
     });
   },
   delete: (req, res) => {
+    console.log('body', req.body);
     req.body.forEach( (elem) => {
       Todo.remove({_id: elem._id}, function(err, elem) {
         if (err) { throw err; }
