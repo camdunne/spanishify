@@ -6,17 +6,17 @@ var Todo = require('../models/todoModel.js');
 module.exports = {
   getTodo: (req, res) => {
     Todo.find(function(err, todos) {
-      if(err) res.send(err);
-      res.json(todos)
-    })
+      if (err) { res.send(err); }
+      res.json(todos);
+    });
   },
   delete: (req, res) => {
     req.body.forEach( (elem) => {
       Todo.remove({_id: elem._id}, function(err, elem) {
-          if(err) throw err;
-          res.send(elem)
-      })
-    })
+        if (err) { throw err; }
+        res.send(elem);
+      });
+    });
   },
   postTodo: (req, res) => {
     var options = {
@@ -25,7 +25,7 @@ module.exports = {
       body: req.body,
       json: true,
       url: 'http://www.transltr.org/api/translate'
-    }
+    };
     request(options, function (error, response, body) {
       if (error) {
         throw error;
@@ -34,9 +34,9 @@ module.exports = {
         translationText: body.translationText,
         text: body.text,
         done: false
-      })
+      });
       todo1.save();
-      res.send(body)
-    })
+      res.send(body);
+    });
   }
 };
