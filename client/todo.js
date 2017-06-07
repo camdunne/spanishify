@@ -37,7 +37,6 @@ var app = angular.module('app.todo', [])
       }
     };
     $scope.removeTodo = function(array) {
-      console.log('array', array);
       $http({
         method: 'POST',
         url: '/delete',
